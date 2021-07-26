@@ -3,7 +3,10 @@
     <!-- Title -->
     <div class="big-title">
       <h1 class="mb-1">Face Challanges</h1>
-      <h1>Be a <span class="text-orange-500 font-bold">Challanger</span></h1>
+      <h1>
+        Be a
+        <span class="bg-orange-100 px-2 py-1">Challanger</span>
+      </h1>
     </div>
     <!-- Login Form -->
     <form>
@@ -28,25 +31,25 @@
 }
 
 .big-title {
-  @apply text-3xl font-semibold;
+  @apply text-3xl font-semibold font-mono;
   @apply mb-14;
 }
 
 .input-label {
-  font-size: 12px;
+  font-size: 14px;
   @apply text-gray-500;
   @apply mb-1 block;
 }
 
 .input {
-  @apply border border-gray-400 shadow-inner;
+  @apply border border-gray-200 shadow-inner;
   @apply rounded;
   @apply px-2 py-2 w-full;
-  @apply focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500;
+  @apply focus:outline-none focus:ring-1 focus:ring-orange-500 focus:border-orange-500;
 }
 
 .btn-primary {
-  @apply text-white bg-gray-700 font-semibold;
+  @apply text-white bg-gradient-to-r from-orange-500 to-yellow-400 font-semibold;
   @apply w-full py-2;
   @apply rounded;
 }

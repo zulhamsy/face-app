@@ -16,5 +16,6 @@ export default {
 <style>
 .main-container {
   @apply px-4;
+  max-width: 360px;
 }
 </style>
