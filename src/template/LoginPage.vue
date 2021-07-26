@@ -25,6 +25,7 @@
 
 <style scoped>
 .container {
+  @apply px-4;
   @apply min-h-screen;
   @apply flex flex-col justify-center;
   @apply text-gray-800;
@@ -50,7 +51,7 @@
 
 .btn-primary {
   @apply text-white bg-gradient-to-r from-orange-500 to-yellow-400 font-semibold;
-  @apply w-full py-2;
+  @apply w-full py-3;
   @apply rounded;
 }
 </style>

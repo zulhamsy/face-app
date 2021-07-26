@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import LoginPage from './template/LoginPage.vue'
+import LoginPage from './template/Dashboard.vue'
 export default {
   components: {
     LoginPage
@@ -15,7 +15,7 @@ export default {
 
 <style>
 .main-container {
-  @apply px-4;
   max-width: 360px;
+  @apply text-gray-700;
 }
 </style>
