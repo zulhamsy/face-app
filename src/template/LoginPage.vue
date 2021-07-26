@@ -2,10 +2,10 @@
   <div class="container">
     <!-- Title -->
     <div class="big-title">
-      <h1 class="mb-1">Face Challanges</h1>
+      <h1 class="mb-2">Face Challanges</h1>
       <h1>
         Be a
-        <span class="bg-orange-100 px-2 py-1">Challanger</span>
+        <span class="bg-orange-50 text-orange-500 px-2 py-1">Challanger</span>
       </h1>
     </div>
     <!-- Login Form -->
@@ -31,7 +31,7 @@
 }
 
 .big-title {
-  @apply text-3xl font-semibold font-mono;
+  @apply text-3xl font-semibold;
   @apply mb-14;
 }
 
