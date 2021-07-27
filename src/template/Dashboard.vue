@@ -70,6 +70,10 @@ main {
   @apply px-4;
 }
 
+main {
+  @apply mx-auto max-w-sm;
+}
+
 nav {
   @apply justify-between items-center w-full;
   /* @apply bg-gradient-to-l from-orange-400 to-yellow-200; */
