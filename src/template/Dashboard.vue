@@ -28,6 +28,8 @@
           <p class="title">Minum Air Putih</p>
           <!-- Remaining Day -->
           <p class="day">7 days remaining</p>
+          <!-- image -->
+          <img src="../assets/img/healthy.png" alt="" />
         </div>
         <div class="card religious">
           <!-- Goal Tag -->
@@ -36,6 +38,8 @@
           <p class="title">Sholat Dhuha 2 Rakaat</p>
           <!-- Remaining Day -->
           <p class="day">7 days remaining</p>
+          <!-- image -->
+          <img src="../assets/img/religious.png" alt="" />
         </div>
         <div class="card productive">
           <!-- Goal Tag -->
@@ -44,22 +48,8 @@
           <p class="title">Reduce Screen Time</p>
           <!-- Remaining Day -->
           <p class="day">7 days remaining</p>
-        </div>
-        <div class="card productive">
-          <!-- Goal Tag -->
-          <p class="tag">Productivity Goal</p>
-          <!-- Goal Title -->
-          <p class="title">Reduce Screen Time</p>
-          <!-- Remaining Day -->
-          <p class="day">7 days remaining</p>
-        </div>
-        <div class="card productive">
-          <!-- Goal Tag -->
-          <p class="tag">Productivity Goal</p>
-          <!-- Goal Title -->
-          <p class="title">Reduce Screen Time</p>
-          <!-- Remaining Day -->
-          <p class="day">7 days remaining</p>
+          <!-- image -->
+          <img src="../assets/img/Computer.png" alt="" />
         </div>
       </div>
     </main>
@@ -137,9 +127,15 @@ button[type='submit'] {
 }
 
 .card {
-  @apply px-4 py-5;
+  @apply px-4 py-5 relative overflow-hidden;
   @apply w-full rounded-md shadow-md bg-gradient-to-l;
   @apply text-gray-50;
+}
+
+.card img {
+  @apply w-40;
+  @apply absolute top-0 right-0;
+  @apply filter grayscale opacity-30;
 }
 
 .tag {
