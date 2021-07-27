@@ -12,14 +12,59 @@
     </nav>
     <!-- Main -->
     <main>
+      <!-- Search Bar -->
       <form>
-        <!-- Search Bar -->
         <input type="text" class="input" placeholder="Search Challange..." />
         <button type="submit" class="block">
           <span class="material-icons"> search </span>
         </button>
       </form>
+      <!-- List of Cards -->
+      <div class="cards">
+        <div class="card healthy">
+          <!-- Goal Tag -->
+          <p class="tag">Healthy Goal</p>
+          <!-- Goal Title -->
+          <p class="title">Minum Air Putih</p>
+          <!-- Remaining Day -->
+          <p class="day">7 days remaining</p>
+        </div>
+        <div class="card religious">
+          <!-- Goal Tag -->
+          <p class="tag">Religious Goal</p>
+          <!-- Goal Title -->
+          <p class="title">Sholat Dhuha 2 Rakaat</p>
+          <!-- Remaining Day -->
+          <p class="day">7 days remaining</p>
+        </div>
+        <div class="card productive">
+          <!-- Goal Tag -->
+          <p class="tag">Productivity Goal</p>
+          <!-- Goal Title -->
+          <p class="title">Reduce Screen Time</p>
+          <!-- Remaining Day -->
+          <p class="day">7 days remaining</p>
+        </div>
+        <div class="card productive">
+          <!-- Goal Tag -->
+          <p class="tag">Productivity Goal</p>
+          <!-- Goal Title -->
+          <p class="title">Reduce Screen Time</p>
+          <!-- Remaining Day -->
+          <p class="day">7 days remaining</p>
+        </div>
+        <div class="card productive">
+          <!-- Goal Tag -->
+          <p class="tag">Productivity Goal</p>
+          <!-- Goal Title -->
+          <p class="title">Reduce Screen Time</p>
+          <!-- Remaining Day -->
+          <p class="day">7 days remaining</p>
+        </div>
+      </div>
     </main>
+    <!-- Create Button -->
+    <button class="create">Create New Challange</button>
   </div>
 </template>
 
@@ -36,8 +81,11 @@ main {
 }
 
 nav {
-  @apply justify-between items-center bg-gradient-to-l from-orange-400 to-yellow-200;
-  @apply h-12 mb-6;
+  @apply justify-between items-center w-full;
+  /* @apply bg-gradient-to-l from-orange-400 to-yellow-200; */
+  @apply shadow-sm;
+  @apply h-12 mb-7;
+  @apply fixed top-0 bg-white;
 }
 
 .logo {
@@ -47,16 +95,16 @@ nav {
 .menu-links {
   font-size: 12px;
   @apply space-x-4;
-  @apply text-gray-50 font-light;
+  @apply text-gray-400 font-light;
 }
 
 .active {
-  @apply text-white font-semibold;
+  @apply text-gray-700 font-semibold;
 }
 
 /* Form */
 form {
-  @apply space-x-1;
+  @apply space-x-1 mb-9 mt-16;
 }
 
 .input {
@@ -67,7 +115,51 @@ form {
   @apply placeholder-gray-200;
 }
 
-button {
-  @apply flex justify-center items-center px-3 text-white bg-orange-400 rounded;
+button[type='submit'] {
+  @apply flex justify-center items-center px-3 text-orange-700 bg-orange-200 rounded;
+}
+
+/* Cards */
+.healthy {
+  @apply from-blue-400 to-blue-700;
+}
+
+.religious {
+  @apply from-teal-400 to-teal-700;
+}
+
+.productive {
+  @apply from-orange-400 to-orange-700;
+}
+
+.cards {
+  @apply space-y-5 mb-20;
+}
+
+.card {
+  @apply px-4 py-5;
+  @apply w-full rounded-md shadow-md bg-gradient-to-l;
+  @apply text-gray-50;
+}
+
+.tag {
+  font-size: 10px;
+  @apply mb-12;
+  @apply opacity-60;
+}
+
+.title {
+  @apply font-medium;
+  @apply mb-1;
+}
+
+.day {
+  font-size: 12px;
+  @apply opacity-70;
+}
+
+.create {
+  @apply w-full py-3 fixed bottom-0;
+  @apply bg-gray-200 text-gray-400 font-medium;
 }
 </style>

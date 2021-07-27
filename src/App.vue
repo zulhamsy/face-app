@@ -15,7 +15,7 @@ export default {
 
 <style>
 .main-container {
-  max-width: 360px;
+  @apply max-w-sm;
   @apply text-gray-700;
 }
 </style>
