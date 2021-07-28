@@ -19,51 +19,51 @@
         <!-- Desc Section -->
         <div>
           <label for="title" class="input-label">Short Description</label>
-          <input type="text" class="input" id="title" />
+          <input id="title" type="text" class="input" />
         </div>
         <div>
           <label for="longdesc" class="input-label"
             >Description
             <span class="text-xs text-gray-400 italic">(optional)</span></label
           >
-          <textarea rows="3" type="text" class="input" id="longdesc" />
+          <textarea id="longdesc" rows="3" type="text" class="input" />
         </div>
         <!-- Duration Section -->
         <div class="duration">
           <label class="input-label">Duration Level</label>
           <div class="duration-container wrapper">
             <!-- 3D -->
-            <input type="radio" id="3days" name="duration" />
+            <input id="3days" type="radio" name="duration" />
             <label for="3days">
               <p>3</p>
               <p>Days</p>
             </label>
             <!-- 6D -->
-            <input type="radio" id="7days" name="duration" />
+            <input id="7days" type="radio" name="duration" />
             <label for="7days">
               <p>7</p>
               <p>Days</p>
             </label>
             <!-- 14D -->
-            <input type="radio" id="14days" name="duration" />
+            <input id="14days" type="radio" name="duration" />
             <label for="14days">
               <p>14</p>
               <p>Days</p>
             </label>
             <!-- 21D -->
-            <input type="radio" id="21days" name="duration" />
+            <input id="21days" type="radio" name="duration" />
             <label for="21days">
               <p>21</p>
               <p>Days</p>
             </label>
             <!-- 30D -->
-            <input type="radio" id="30days" name="duration" />
+            <input id="30days" type="radio" name="duration" />
             <label for="30days">
               <p>30</p>
               <p>Days</p>
             </label>
             <!-- 60D -->
-            <input type="radio" id="60days" name="duration" />
+            <input id="60days" type="radio" name="duration" />
             <label for="60days">
               <p>60</p>
               <p>Days</p>
@@ -75,17 +75,17 @@
           <label class="input-label">Goal Category</label>
           <div class="goal-container wrapper">
             <!-- Healthy -->
-            <input type="radio" id="healthy" name="goal" />
+            <input id="healthy" type="radio" name="goal" />
             <label for="healthy">
               <p>Healthy</p>
             </label>
             <!-- Religious -->
-            <input type="radio" id="religious" name="goal" />
+            <input id="religious" type="radio" name="goal" />
             <label for="religious">
               <p>Religious</p>
             </label>
             <!-- Productive -->
-            <input type="radio" id="productive" name="goal" />
+            <input id="productive" type="radio" name="goal" />
             <label for="productive">
               <p>Productive</p>
             </label>
