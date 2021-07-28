@@ -13,6 +13,8 @@
     "@vitejs/plugin-vue": "^1.2.5",
     "@vue/compiler-sfc": "^3.0.5",
     "autoprefixer": "^10.3.1",
+    "eslint": "^7.31.0",
+    "eslint-plugin-vue": "^7.14.0",
     "postcss": "^8.3.6",
     "tailwindcss": "^2.2.7",
     "vite": "^2.4.3"
