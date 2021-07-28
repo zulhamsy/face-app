@@ -93,7 +93,10 @@
           </div>
         </div>
         <!-- Submit Button -->
-        <button type="submit" class="btn-primary">Create Challange</button>
+        <button type="submit" class="btn-primary">
+          <span class="material-icons mr-2 animate-spin">autorenew</span>
+          <p>Create Challange</p>
+        </button>
       </form>
     </main>
   </div>
@@ -214,7 +217,7 @@ input[type='radio'] {
 
 .btn-primary {
   @apply text-white bg-gradient-to-r from-orange-500 to-yellow-400 font-semibold;
-  @apply w-full py-3;
+  @apply w-full py-3 flex items-center justify-center;
   @apply rounded;
 }
 </style>
