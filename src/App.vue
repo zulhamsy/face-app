@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import LoginPage from './template/CreateChallange.vue'
+import LoginPage from './template/SingleCard.vue'
 export default {
   components: {
     LoginPage
