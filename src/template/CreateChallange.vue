@@ -93,7 +93,7 @@
           </div>
         </div>
         <!-- Submit Button -->
-        <button type="submit" class="btn-primary">Login</button>
+        <button type="submit" class="btn-primary">Create Challange</button>
       </form>
     </main>
   </div>
