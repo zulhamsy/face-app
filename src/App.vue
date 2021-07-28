@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import LoginPage from './template/Dashboard.vue'
+import LoginPage from './template/CreateChallange.vue'
 export default {
   components: {
     LoginPage

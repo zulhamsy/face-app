@@ -71,7 +71,7 @@ main {
 }
 
 main {
-  @apply mx-auto max-w-sm;
+  @apply mx-auto max-w-sm mt-16;
 }
 
 nav {
@@ -98,7 +98,7 @@ nav {
 
 /* Form */
 form {
-  @apply space-x-1 mb-9 mt-16;
+  @apply space-x-1 mb-9;
 }
 
 .input {

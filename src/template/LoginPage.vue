@@ -10,11 +10,11 @@
     </div>
     <!-- Login Form -->
     <form>
-      <div class="email mb-5">
+      <div class="mb-5">
         <label for="email" class="input-label">Email</label>
         <input type="email" class="input" id="email" />
       </div>
-      <div class="email mb-8">
+      <div class="mb-8">
         <label for="password" class="input-label">Password</label>
         <input type="password" class="input" id="password" />
       </div>
