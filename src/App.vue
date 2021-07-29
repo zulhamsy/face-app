@@ -1,6 +1,6 @@
 <template>
   <div class="main-container p-2">
-    <login-page class="w-2/3">Submit</login-page>
+    <login-page :load-icon="true" class="w-2/3">Submit</login-page>
   </div>
 </template>
 

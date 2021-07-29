@@ -8,7 +8,15 @@
 State:
 -> Base
 -> Loading State with animation -->
-  <button class="rounded py-3" :class="colorClass[color]">
+  <button
+    class="rounded py-3 flex items-center justify-center"
+    :class="colorClass[color]"
+  >
+    <slot name="load-icon">
+      <span v-show="loadIcon" class="material-icons mr-2 animate-spin"
+        >autorenew</span
+      >
+    </slot>
     <slot>Custom Button</slot>
   </button>
 </template>
@@ -19,7 +27,11 @@ export default {
   props: {
     color: {
       type: String,
-      default: 'text'
+      default: 'primary'
+    },
+    loadIcon: {
+      type: Boolean,
+      default: false
     }
   },
   data() {
@@ -36,5 +48,3 @@ export default {
   }
 }
 </script>
-
-<style></style>
