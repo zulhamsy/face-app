@@ -12,10 +12,8 @@ State:
     class="rounded py-3 flex items-center justify-center"
     :class="colorClass[color]"
   >
-    <slot name="load-icon">
-      <span v-show="loadIcon" class="material-icons mr-2 animate-spin"
-        >autorenew</span
-      >
+    <slot v-if="loadIcon" name="load-icon">
+      <span class="material-icons mr-2 animate-spin">autorenew</span>
     </slot>
     <slot>Custom Button</slot>
   </button>
