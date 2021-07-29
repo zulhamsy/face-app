@@ -17,7 +17,10 @@ module.exports = {
   },
   variants: {
     extend: {
-      borderWidth: ['focus']
+      borderWidth: ['focus'],
+      backgroundColor: ['disabled'],
+      textColor: ['disabled'],
+      gradientColorStops: ['disabled']
     }
   },
   plugins: []
