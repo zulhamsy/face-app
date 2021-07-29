@@ -1,13 +1,11 @@
 <template>
-  <div class="main-container p-2">
-    <login-page :load-icon="false" color="primary" class="w-2/3">
-      <p>Some Shit</p>
-    </login-page>
+  <div class="main-container">
+    <login-page />
   </div>
 </template>
 
 <script>
-import LoginPage from './components/BaseButton.vue'
+import LoginPage from './components/BaseInputLabel.vue'
 export default {
   components: {
     LoginPage
