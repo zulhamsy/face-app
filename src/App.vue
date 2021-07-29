@@ -1,11 +1,11 @@
 <template>
-  <div class="main-container">
-    <login-page />
+  <div class="main-container p-2">
+    <login-page class="w-2/3">Submit</login-page>
   </div>
 </template>
 
 <script>
-import LoginPage from './template/SingleCard.vue'
+import LoginPage from './components/BaseButton.vue'
 export default {
   components: {
     LoginPage
