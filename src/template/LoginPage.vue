@@ -25,8 +25,8 @@
 
 <style scoped>
 .container {
-  @apply px-4;
-  @apply min-h-screen;
+  @apply px-4 mx-auto;
+  @apply min-h-screen max-w-sm;
   @apply flex flex-col justify-center;
   @apply text-gray-800;
 }

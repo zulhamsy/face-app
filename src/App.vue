@@ -1,14 +1,17 @@
 <template>
   <div class="main-container">
+    <the-navbar />
     <login-page />
   </div>
 </template>
 
 <script>
-import LoginPage from './components/BaseInputLabel.vue'
+import LoginPage from './views/Login.vue'
+import TheNavbar from './components/TheNavbar.vue'
 export default {
   components: {
-    LoginPage
+    LoginPage,
+    TheNavbar
   }
 }
 </script>
@@ -16,6 +19,6 @@ export default {
 <style>
 .main-container {
   @apply w-full;
-  @apply text-gray-700;
+  @apply text-gray-800;
 }
 </style>
