@@ -3,10 +3,14 @@
     <!-- App Bar -->
     <nav>
       <!-- Logo -->
-      <h1 class="logo">FaCe</h1>
+      <h1 class="logo">
+        FaCe
+      </h1>
       <!-- Menu Links -->
       <ul class="menu-links">
-        <li class="active">Dashboard</li>
+        <li class="active">
+          Dashboard
+        </li>
         <li>Sign Out</li>
       </ul>
     </nav>
@@ -14,8 +18,15 @@
     <main>
       <!-- Search Bar -->
       <form>
-        <input type="text" class="input" placeholder="Search Challange..." />
-        <button type="submit" class="block">
+        <input
+          type="text"
+          class="input"
+          placeholder="Search Challange..."
+        >
+        <button
+          type="submit"
+          class="block"
+        >
           <span class="material-icons"> search </span>
         </button>
       </form>
@@ -23,38 +34,67 @@
       <div class="cards">
         <div class="card healthy">
           <!-- Goal Tag -->
-          <p class="tag">Healthy Goal</p>
+          <p class="tag">
+            Healthy Goal
+          </p>
           <!-- Goal Title -->
-          <p class="title">Minum Air Putih</p>
+          <p class="title">
+            Minum Air Putih
+          </p>
           <!-- Remaining Day -->
-          <p class="day">7 days remaining</p>
+          <p class="day">
+            7 days remaining
+          </p>
           <!-- image -->
-          <img src="../assets/img/healthy.png" alt="" />
+          <img
+            src="../assets/img/healthy.png"
+            alt=""
+          >
         </div>
         <div class="card religious">
           <!-- Goal Tag -->
-          <p class="tag">Religious Goal</p>
+          <p class="tag">
+            Religious Goal
+          </p>
           <!-- Goal Title -->
-          <p class="title">Sholat Dhuha 2 Rakaat</p>
+          <p class="title">
+            Sholat Dhuha 2 Rakaat
+          </p>
           <!-- Remaining Day -->
-          <p class="day">7 days remaining</p>
+          <p class="day">
+            7 days remaining
+          </p>
           <!-- image -->
-          <img src="../assets/img/religious.png" alt="" />
+          <img
+            src="../assets/img/religious.png"
+            alt=""
+          >
         </div>
         <div class="card productive">
           <!-- Goal Tag -->
-          <p class="tag">Productivity Goal</p>
+          <p class="tag">
+            Productivity Goal
+          </p>
           <!-- Goal Title -->
-          <p class="title">Reduce Screen Time</p>
+          <p class="title">
+            Reduce Screen Time
+          </p>
           <!-- Remaining Day -->
-          <p class="day">7 days remaining</p>
+          <p class="day">
+            7 days remaining
+          </p>
           <!-- image -->
-          <img src="../assets/img/Computer.png" alt="" />
+          <img
+            src="../assets/img/Computer.png"
+            alt=""
+          >
         </div>
       </div>
     </main>
     <!-- Create Button -->
-    <button class="create">Create New Challange</button>
+    <button class="create">
+      Create New Challange
+    </button>
   </div>
 </template>
 

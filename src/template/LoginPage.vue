@@ -2,7 +2,9 @@
   <div class="container">
     <!-- Title -->
     <div class="big-title">
-      <h1 class="mb-2">Face Challanges</h1>
+      <h1 class="mb-2">
+        Face Challanges
+      </h1>
       <h1>
         Be a
         <span class="bg-orange-50 text-orange-500 px-2 py-1">Challanger</span>
@@ -11,14 +13,33 @@
     <!-- Login Form -->
     <form>
       <div class="mb-5">
-        <label for="email" class="input-label">Email</label>
-        <input id="email" type="email" class="input" />
+        <label
+          for="email"
+          class="input-label"
+        >Email</label>
+        <input
+          id="email"
+          type="email"
+          class="input"
+        >
       </div>
       <div class="mb-8">
-        <label for="password" class="input-label">Password</label>
-        <input id="password" type="password" class="input" />
+        <label
+          for="password"
+          class="input-label"
+        >Password</label>
+        <input
+          id="password"
+          type="password"
+          class="input"
+        >
       </div>
-      <button type="submit" class="btn-primary">Login</button>
+      <button
+        type="submit"
+        class="btn-primary"
+      >
+        Login
+      </button>
     </form>
   </div>
 </template>

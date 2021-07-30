@@ -1,10 +1,14 @@
 <template>
   <nav class="px-4">
     <!-- Logo -->
-    <h1 class="logo">FaCe</h1>
+    <h1 class="logo">
+      FaCe
+    </h1>
     <!-- Menu Links -->
     <ul class="menu-links space-x-4">
-      <li class="active">Dashboard</li>
+      <li class="active">
+        Dashboard
+      </li>
       <li>Sign Out</li>
     </ul>
   </nav>

@@ -1,5 +1,8 @@
 <template>
-  <input class="p-2 rounded" :class="colorClass[color]" />
+  <input
+    class="p-2 rounded"
+    :class="colorClass[color]"
+  >
 </template>
 
 <script>

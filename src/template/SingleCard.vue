@@ -3,7 +3,9 @@
     <!-- App Bar -->
     <nav>
       <!-- Logo -->
-      <h1 class="logo">FaCe</h1>
+      <h1 class="logo">
+        FaCe
+      </h1>
       <!-- Menu Links -->
       <ul class="menu-links">
         <li>Dashboard</li>
@@ -14,12 +16,18 @@
     <main class="space-y-8">
       <!-- Short Desc -->
       <div>
-        <p class="card-label">Short Description</p>
-        <p class="prominent">Minum Air Putih</p>
+        <p class="card-label">
+          Short Description
+        </p>
+        <p class="prominent">
+          Minum Air Putih
+        </p>
       </div>
       <!-- Desc -->
       <div>
-        <p class="card-label">Description</p>
+        <p class="card-label">
+          Description
+        </p>
         <p class="card-text">
           Challenge agar hanya meminum air putih, boleh selain itu hanya susu
           dan jus buah
@@ -27,25 +35,43 @@
       </div>
       <!-- Starting Date -->
       <div>
-        <p class="card-label">Starting Date</p>
-        <p class="card-text">Sunday, 25 July 2021</p>
+        <p class="card-label">
+          Starting Date
+        </p>
+        <p class="card-text">
+          Sunday, 25 July 2021
+        </p>
       </div>
       <!-- Ending Date -->
       <div>
-        <p class="card-label">Ending Date</p>
-        <p class="card-text">Sunday, 01 August 2021</p>
+        <p class="card-label">
+          Ending Date
+        </p>
+        <p class="card-text">
+          Sunday, 01 August 2021
+        </p>
       </div>
       <!-- Failed Times -->
       <div>
-        <p class="card-label">Failed</p>
-        <p class="card-text">2 times</p>
+        <p class="card-label">
+          Failed
+        </p>
+        <p class="card-text">
+          2 times
+        </p>
       </div>
       <!-- CTA -->
       <div class="space-y-3">
-        <button type="submit" class="btn-outline">
+        <button
+          type="submit"
+          class="btn-outline"
+        >
           <p>Lost This Challenge</p>
         </button>
-        <button type="submit" class="btn-text">
+        <button
+          type="submit"
+          class="btn-text"
+        >
           <p>Delete Challenge</p>
         </button>
       </div>
