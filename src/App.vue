@@ -1,16 +1,16 @@
 <template>
   <div class="main-container">
     <the-navbar />
-    <login-page />
+    <dashboard />
   </div>
 </template>
 
 <script>
-import LoginPage from './views/Login.vue'
 import TheNavbar from './components/TheNavbar.vue'
+import Dashboard from './views/Dashboard.vue'
 export default {
   components: {
-    LoginPage,
+    Dashboard,
     TheNavbar
   }
 }

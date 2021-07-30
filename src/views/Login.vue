@@ -1,5 +1,5 @@
 <template>
-  <div class="container space-y-8">
+  <div class="container space-y-8 mx-auto px-4">
     <!-- Title Section -->
     <div>
       <!-- Title -->
@@ -71,7 +71,6 @@ h1 > span {
 }
 
 .container {
-  @apply mx-auto px-4;
   @apply h-screen max-w-sm;
   @apply flex flex-col justify-center;
 }

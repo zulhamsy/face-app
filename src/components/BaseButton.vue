@@ -40,6 +40,7 @@ export default {
       colorClass: {
         primary:
           'bg-gradient-to-r from-orange-500 to-yellow-400 text-white font-semibold focus:from-yellow-400 focus:to-orange-500 focus:ring-4 focus:ring-inset focus:ring-yellow-200 disabled:from-gray-200 disabled:to-gray-200 disabled:text-gray-400',
+        secondary: 'text-orange-700 bg-orange-200',
         gray: 'bg-gray-200 text-gray-400 font-medium focus:ring-4 focus:ring-inset focus:ring-gray-100',
         outlined:
           'font-medium text-gray-400 border border-gray-300 focus:bg-gray-300 focus:text-white',
