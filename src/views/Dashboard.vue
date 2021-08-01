@@ -1,7 +1,7 @@
 <template>
   <div class="container mx-auto px-4 pt-16">
-    <form class="search-bar space-x-1">
-      <!-- Search bar -->
+    <!-- Search bar -->
+    <form class="search-bar space-x-1 mb-9">
       <base-input
         type="text"
         placeholder="Search Challange..."
@@ -15,17 +15,21 @@
         <span class="material-icons"> search </span>
       </base-button>
     </form>
+    <!-- Card -->
+    <card-goal goal-type="religious" />
   </div>
 </template>
 
 <script>
 import BaseInput from '../components/BaseInput.vue'
 import BaseButton from '../components/BaseButton.vue'
+import CardGoal from '../components/CardGoal.vue'
 export default {
   name: 'Dashboard',
   components: {
     BaseInput,
-    BaseButton
+    BaseButton,
+    CardGoal
   }
 }
 </script>
