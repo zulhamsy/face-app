@@ -1,5 +1,5 @@
 <template>
-  <nav class="px-4">
+  <nav class="px-4 z-50">
     <!-- Logo -->
     <h1 class="logo">
       FaCe

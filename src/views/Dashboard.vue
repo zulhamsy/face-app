@@ -16,7 +16,20 @@
       </base-button>
     </form>
     <!-- Card -->
-    <card-goal goal-type="religious" />
+    <div class="space-y-3 pb-16">
+      <card-goal goal-type="religious" />
+      <card-goal goal-type="religious" />
+      <card-goal goal-type="religious" />
+      <card-goal goal-type="religious" />
+      <card-goal goal-type="religious" />
+    </div>
+    <!-- Create Button -->
+    <base-button
+      color="gray"
+      class="fixed bottom-0 left-0 w-full"
+    >
+      Create Challenge
+    </base-button>
   </div>
 </template>
 
