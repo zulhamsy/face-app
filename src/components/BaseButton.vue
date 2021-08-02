@@ -10,7 +10,7 @@ State:
 -> Loading State with animation -->
   <button
     class="rounded py-3 flex items-center justify-center"
-    :class="colorClass[color]"
+    :color="color"
   >
     <slot
       v-if="loadIcon"
@@ -34,20 +34,35 @@ export default {
       type: Boolean,
       default: false
     }
-  },
-  data() {
-    return {
-      colorClass: {
-        primary:
-          'bg-gradient-to-r from-orange-500 to-yellow-400 text-white font-semibold focus:from-yellow-400 focus:to-orange-500 focus:ring-4 focus:ring-inset focus:ring-yellow-200 disabled:from-gray-200 disabled:to-gray-200 disabled:text-gray-400',
-        secondary:
-          'text-orange-700 bg-orange-200 focus:ring-2 focus:ring-orange-300',
-        gray: 'bg-gray-200 text-gray-400 font-medium focus:ring-4 focus:ring-inset focus:ring-gray-100',
-        outlined:
-          'font-medium text-gray-400 border border-gray-300 focus:bg-gray-300 focus:text-white',
-        text: 'font-medium text-gray-300 focus:border-b-2 focus:border-gray-300 focus:text-gray-400'
-      }
-    }
   }
 }
 </script>
+<style scoped>
+button[color='primary'] {
+  @apply bg-gradient-to-r from-orange-500 to-yellow-400;
+  @apply text-white font-semibold;
+  @apply focus:from-yellow-400 focus:to-orange-500 focus:ring-4 focus:ring-inset focus:ring-yellow-200;
+  @apply disabled:from-gray-200 disabled:to-gray-200 disabled:text-gray-400;
+}
+
+button[color='secondary'] {
+  @apply text-orange-700 bg-orange-200;
+  @apply focus:ring-2 focus:ring-orange-300;
+}
+
+button[color='gray'] {
+  @apply bg-gray-200 text-gray-400 font-medium;
+  @apply focus:ring-4 focus:ring-inset focus:ring-gray-100;
+}
+
+button[color='outlined'] {
+  @apply font-medium text-gray-400;
+  @apply border border-gray-300;
+  @apply focus:bg-gray-300 focus:text-white;
+}
+
+button[color='text'] {
+  @apply font-medium text-gray-300;
+  @apply focus:border-b-2 focus:border-gray-300 focus:text-gray-400;
+}
+</style>
