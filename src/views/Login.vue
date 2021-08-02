@@ -48,16 +48,8 @@
 </template>
 
 <script>
-import BaseInputLabel from '../components/BaseInputLabel.vue'
-import BaseInput from '../components/BaseInput.vue'
-import BaseButton from '../components/BaseButton.vue'
 export default {
-  name: 'LoginPage',
-  components: {
-    BaseInputLabel,
-    BaseInput,
-    BaseButton
-  }
+  name: 'LoginPage'
 }
 </script>
 

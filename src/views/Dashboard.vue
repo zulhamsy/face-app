@@ -1,4 +1,6 @@
 <template>
+  <!-- Navbar -->
+  <the-navbar />
   <div class="container mx-auto px-4 pt-16">
     <!-- Search bar -->
     <form class="search-bar space-x-1 mb-9">
@@ -34,14 +36,10 @@
 </template>
 
 <script>
-import BaseInput from '../components/BaseInput.vue'
-import BaseButton from '../components/BaseButton.vue'
 import CardGoal from '../components/CardGoal.vue'
 export default {
   name: 'Dashboard',
   components: {
-    BaseInput,
-    BaseButton,
     CardGoal
   }
 }
