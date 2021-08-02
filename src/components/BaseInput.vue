@@ -1,7 +1,7 @@
 <template>
   <input
     class="p-2 rounded"
-    :class="colorClass[color]"
+    :color="color"
   >
 </template>
 
@@ -13,14 +13,12 @@ export default {
       type: String,
       default: 'primary'
     }
-  },
-  data() {
-    return {
-      colorClass: {
-        primary:
-          'border border-gray-200 shadow-inner focus:outline-none focus:ring-1 focus:ring-orange-500 focus:border-orange-500'
-      }
-    }
   }
 }
 </script>
+<style scoped>
+input[color='primary'] {
+  @apply border border-gray-200 shadow-inner;
+  @apply focus:outline-none focus:ring-1 focus:ring-orange-500 focus:border-orange-500;
+}
+</style>
