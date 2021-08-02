@@ -5,6 +5,7 @@
     type="radio"
     :name="$attrs.name"
     :color="color"
+    v-bind="$attrs"
   >
   <label
     :for="$attrs.id"
