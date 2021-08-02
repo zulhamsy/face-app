@@ -31,6 +31,9 @@
 </template>
 
 <script>
+import HealthyImg from '../assets/img/healthy.png'
+import ReligiousImg from '../assets/img/religious.png'
+import ProductiveImg from '../assets/img/productive.png'
 export default {
   name: 'CardGoal',
   props: {
@@ -50,9 +53,9 @@ export default {
         productive: 'from-orange-400 to-orange-700'
       },
       imgSrc: {
-        healthy: '/src/assets/img/healthy.png',
-        religious: '/src/assets/img/religious.png',
-        productive: '/src/assets/img/productive.png'
+        healthy: HealthyImg,
+        religious: ReligiousImg,
+        productive: ProductiveImg
       }
     }
   }
