@@ -33,6 +33,23 @@
         />
       </div>
       <!-- Duration Section -->
+      <div>
+        <base-input-label>Duration Level</base-input-label>
+        <div class="radio-wrapper goals">
+          <custom-radio
+            v-for="day in duration"
+            :id="day + 'd'"
+            :key="day"
+            name="days"
+            class="flex flex-col items-center justify-center"
+          >
+            <template #label>
+              <span class="font-semibold text-lg">{{ day }}</span>
+              <span class="opacity-80">Days</span>
+            </template>
+          </custom-radio>
+        </div>
+      </div>
       <!-- Goal Section -->
       <!-- Submit Button -->
     </form>
@@ -40,9 +57,17 @@
 </template>
 
 <script>
-import BaseInput from '../components/BaseInput.vue'
+import CustomRadio from '../components/CustomRadio.vue'
 export default {
-  components: { BaseInput }
+  name: 'CreateChallange',
+  components: {
+    CustomRadio
+  },
+  data() {
+    return {
+      duration: [3, 7, 14, 21, 30, 60]
+    }
+  }
 }
 </script>
 
@@ -64,10 +89,16 @@ h1 {
   @apply text-xs text-gray-300;
 }
 
-textarea {
-}
-
 .optional {
   @apply italic;
+}
+
+.radio-wrapper {
+  @apply grid gap-4;
+}
+
+.goals {
+  grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+  grid-auto-rows: minmax(50px, 80px);
 }
 </style>
