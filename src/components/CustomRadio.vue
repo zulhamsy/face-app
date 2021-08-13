@@ -38,7 +38,7 @@ input[type='radio'] {
 input[type='radio'] + label {
   @apply cursor-pointer;
   @apply rounded;
-  @apply text-gray-400 text-sm;
+  @apply text-gray-300 text-sm;
   @apply border border-gray-200;
 }
 

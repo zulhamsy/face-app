@@ -35,7 +35,7 @@
       <!-- Duration Section -->
       <div>
         <base-input-label>Duration Level</base-input-label>
-        <div class="radio-wrapper goals">
+        <div class="radio-wrapper duration">
           <custom-radio
             v-for="day in duration"
             :id="day + 'd'"
@@ -51,7 +51,32 @@
         </div>
       </div>
       <!-- Goal Section -->
+      <div>
+        <base-input-label>Goal Category</base-input-label>
+        <div class="radio-wrapper goals">
+          <custom-radio
+            v-for="goal in goals"
+            :id="goal"
+            :key="goal"
+            name="goals"
+            :color="goal"
+          >
+            <template #label>
+              <span class="h-full flex items-center justify-center capitalize font-medium text-md">{{ goal }}</span>
+            </template>
+          </custom-radio>
+          <!-- Coming Feature / Add New Category -->
+          <div class="add-goal">
+            +
+          </div>
+        </div>
+      </div>
       <!-- Submit Button -->
+      <base-button
+        class="w-full"
+      >
+        Create Challange
+      </base-button>
     </form>
   </div>
 </template>
@@ -65,7 +90,8 @@ export default {
   },
   data() {
     return {
-      duration: [3, 7, 14, 21, 30, 60]
+      duration: [3, 7, 14, 21, 30, 60],
+      goals: ['healthy', 'religious', 'productive']
     }
   }
 }
@@ -97,8 +123,19 @@ h1 {
   @apply grid gap-4;
 }
 
-.goals {
+.duration {
   grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
   grid-auto-rows: minmax(50px, 80px);
+}
+
+.goals {
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  grid-auto-rows: 90px;
+}
+
+.add-goal {
+  @apply flex justify-center items-center;
+  @apply text-3xl text-gray-200;
+  @apply border-2 border-dashed border-gray-200;
 }
 </style>
