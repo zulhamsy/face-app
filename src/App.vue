@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import Dashboard from './views/CreateChallenge.vue'
+import Dashboard from './views/ViewChallenge.vue'
 export default {
   components: {
     Dashboard
