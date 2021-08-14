@@ -8,6 +8,9 @@
     "lint": "eslint --ext .vue ./src --fix"
   },
   "dependencies": {
+    "@vee-validate/rules": "^4.4.7",
+    "firebase": "^8.9.1",
+    "vee-validate": "^4.4.9",
     "vue": "^3.0.5"
   },
   "devDependencies": {

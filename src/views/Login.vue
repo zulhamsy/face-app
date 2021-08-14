@@ -12,16 +12,29 @@
       </h1>
     </div>
     <!-- Form Section -->
-    <form class="space-y-6">
+    <ValidForm
+      class="space-y-6"
+      :validation-schema="schema"
+    >
       <!-- Email -->
       <div>
         <base-input-label for="email">
           Email
         </base-input-label>
-        <base-input
-          id="email"
-          class="w-full"
-          type="email"
+        <Field
+          v-slot="{ field }"
+          name="email"
+        >
+          <base-input
+            id="email"
+            v-bind="field"
+            class="w-full"
+            type="email"
+          />
+        </Field>
+        <ErrorMessage
+          name="email"
+          class="error"
         />
       </div>
       <!-- Password -->
@@ -29,10 +42,20 @@
         <base-input-label for="password">
           Password
         </base-input-label>
-        <base-input
-          id="password"
-          class="w-full"
-          type="password"
+        <Field
+          v-slot="{ field }"
+          name="password"
+        >
+          <base-input
+            id="password"
+            v-bind="field"
+            class="w-full"
+            type="password"
+          />
+        </Field>
+        <ErrorMessage
+          name="password"
+          class="error"
         />
       </div>
       <!-- Submit Button -->
@@ -43,13 +66,21 @@
       >
         Login
       </base-button>
-    </form>
+    </ValidForm>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'LoginPage'
+  name: 'LoginPage',
+  data() {
+    return {
+      schema: {
+        email: 'required|email',
+        password: 'required'
+      }
+    }
+  }
 }
 </script>
 
@@ -65,5 +96,10 @@ h1 > span {
 .container {
   @apply h-screen max-w-sm;
   @apply flex flex-col justify-center;
+}
+
+.error {
+  @apply inline-block px-2 py-1 rounded mt-2;
+  @apply text-red-500 bg-red-100 text-sm;
 }
 </style>
