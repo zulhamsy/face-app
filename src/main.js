@@ -1,6 +1,7 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 import './index.css'
+import store from './store'
 import Validation from './includes/validation'
 // Global Component
 import BaseButton from './components/BaseButton.vue'
@@ -9,6 +10,7 @@ import BaseInputLabel from './components/BaseInputLabel.vue'
 import TheNavbar from './components/TheNavbar.vue'
 
 const app = createApp(App)
+app.use(store)
 app.use(Validation)
 
 // Global Component Registration

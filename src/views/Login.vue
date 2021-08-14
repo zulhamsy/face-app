@@ -15,6 +15,7 @@
     <ValidForm
       class="space-y-6"
       :validation-schema="schema"
+      @submit="proceedLogin"
     >
       <!-- Email -->
       <div>
@@ -71,6 +72,7 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex'
 export default {
   name: 'LoginPage',
   data() {
@@ -78,6 +80,17 @@ export default {
       schema: {
         email: 'required|email',
         password: 'required'
+      }
+    }
+  },
+  methods: {
+    ...mapActions(['login']),
+    async proceedLogin(payload) {
+      try {
+        const UserCred = await this.login(payload)
+        console.log(UserCred)
+      } catch (error) {
+        console.log(error.message)
       }
     }
   }
