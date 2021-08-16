@@ -2,7 +2,8 @@ import { createRouter, createWebHistory } from 'vue-router'
 import store from '../store'
 
 import Login from '../views/Login.vue'
-import Dashboard from '../views/Dashboard.vue'
+
+const Dashboard = () => import('../views/Dashboard.vue')
 
 const routes = [
   {
