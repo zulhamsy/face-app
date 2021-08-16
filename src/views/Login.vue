@@ -87,8 +87,10 @@ export default {
     ...mapActions(['login']),
     async proceedLogin(payload) {
       try {
-        const UserCred = await this.login(payload)
-        console.log(UserCred)
+        await this.login(payload)
+        this.$router.push({
+          name: 'dashboard'
+        })
       } catch (error) {
         console.log(error.message)
       }
