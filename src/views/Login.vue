@@ -62,7 +62,7 @@
       <!-- Submit Button -->
       <base-button
         type="submit"
-        :load-icon="false"
+        :load-icon="loadIcon"
         class="w-full"
       >
         Login
@@ -77,6 +77,7 @@ export default {
   name: 'LoginPage',
   data() {
     return {
+      loadIcon: false,
       schema: {
         email: 'required|email',
         password: 'required'
@@ -87,6 +88,7 @@ export default {
     ...mapActions(['login']),
     async proceedLogin(payload) {
       try {
+        this.loadIcon = true
         await this.login(payload)
         this.$router.push({
           name: 'dashboard'
@@ -94,6 +96,7 @@ export default {
       } catch (error) {
         console.log(error.message)
       }
+      this.loadIcon = false
     }
   }
 }
