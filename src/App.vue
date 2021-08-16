@@ -1,16 +1,11 @@
 <template>
   <div class="main-container">
-    <dashboard />
+    <router-view />
   </div>
 </template>
 
 <script>
-import Dashboard from './views/Login.vue'
-export default {
-  components: {
-    Dashboard
-  }
-}
+export default {}
 </script>
 
 <style>
