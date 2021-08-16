@@ -5,7 +5,16 @@
 </template>
 
 <script>
-export default {}
+import { auth } from './firebase'
+import { mapMutations } from 'vuex'
+export default {
+  created() {
+    if (auth.currentUser) {
+      this.toggleLogin()
+    }
+  },
+  methods: { ...mapMutations(['toggleLogin']) }
+}
 </script>
 
 <style>
