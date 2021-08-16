@@ -17,7 +17,12 @@ const routes = [
   {
     path: '/login',
     name: 'login',
-    component: Login
+    component: Login,
+    beforeEnter() {
+      if (store.state.isLogin) {
+        return { name: 'dashboard' }
+      }
+    }
   }
 ]
 
