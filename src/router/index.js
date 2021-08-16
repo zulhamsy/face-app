@@ -28,7 +28,8 @@ const routes = [
 
 const router = createRouter({
   history: createWebHistory(),
-  routes
+  routes,
+  linkExactActiveClass: 'text-gray-700 font-semibold'
 })
 
 router.beforeEach((to, from, next) => {

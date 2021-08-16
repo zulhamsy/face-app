@@ -21,6 +21,10 @@ const store = {
       const cred = await auth.signInWithEmailAndPassword(email, password)
       commit('toggleLogin')
       return cred
+    },
+    logout({ commit }) {
+      auth.signOut()
+      commit('toggleLogout')
     }
   }
 }
