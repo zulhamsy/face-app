@@ -3,10 +3,14 @@
   <the-navbar />
   <div class="container mx-auto px-4 pt-16">
     <!-- Search bar -->
-    <form class="search-bar space-x-1 mb-9">
+    <form
+      class="search-bar space-x-1 mb-9"
+      @submit.prevent="search"
+    >
       <base-input
+        v-model="keyword"
         type="text"
-        placeholder="Search Challange..."
+        placeholder="Search Challenge..."
         class="w-full"
       />
       <base-button
@@ -50,8 +54,18 @@ export default {
   components: {
     CardGoal
   },
+  data() {
+    return {
+      keyword: ''
+    }
+  },
   computed: {
     ...mapState(['challenges'])
+  },
+  methods: {
+    search() {
+      console.log(this.keyword)
+    }
   }
 }
 </script>

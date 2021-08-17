@@ -2,11 +2,15 @@
   <input
     v-if="mode === 'input'"
     :color="color"
+    :value="modelValue"
+    @input="$emit('update:modelValue', $event.target.value)"
   >
   <textarea
     v-else
     rows="3"
     :color="color"
+    :value="modelValue"
+    @input="$emit('update:modelValue', $event.target.value)"
   />
 </template>
 
@@ -14,6 +18,10 @@
 export default {
   name: 'BaseInput',
   props: {
+    modelValue: {
+      type: String,
+      default: ''
+    },
     color: {
       type: String,
       default: 'primary'
@@ -25,7 +33,8 @@ export default {
         return ['input', 'textarea'].includes(value)
       }
     }
-  }
+  },
+  emits: ['update:modelValue']
 }
 </script>
 <style scoped>
