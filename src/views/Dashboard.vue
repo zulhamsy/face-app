@@ -3,9 +3,8 @@
   <the-navbar />
   <div class="container mx-auto px-4 pt-16">
     <!-- Search bar -->
-    <form
-      class="search-bar space-x-1 mb-9"
-      @submit.prevent="search"
+    <div
+      class="search-bar space-x-1 mb-6"
     >
       <base-input
         v-model="keyword"
@@ -13,18 +12,18 @@
         placeholder="Search Challenge..."
         class="w-full"
       />
-      <base-button
+      <!-- <base-button
         type="submit"
         color="secondary"
         class="px-3"
       >
         <span class="material-icons"> search </span>
-      </base-button>
-    </form>
+      </base-button> -->
+    </div>
     <!-- Card -->
     <div class="space-y-3 pb-16">
       <card-goal
-        v-for="challenge in challenges"
+        v-for="challenge in filteredChallenges"
         :key="challenge.id"
         :goal-type="challenge.goalType"
       >
@@ -60,11 +59,16 @@ export default {
     }
   },
   computed: {
-    ...mapState(['challenges'])
-  },
-  methods: {
-    search() {
-      console.log(this.keyword)
+    ...mapState(['challenges']),
+    filteredChallenges() {
+      const regex = new RegExp(this.keyword)
+      if (!this.keyword) {
+        return this.challenges
+      } else {
+        return this.challenges.filter((challenge) =>
+          regex.test(challenge.title.toLowerCase())
+        )
+      }
     }
   }
 }
