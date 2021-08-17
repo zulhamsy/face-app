@@ -4,7 +4,29 @@ import { auth } from '../firebase'
 const store = {
   state() {
     return {
-      isLogin: false
+      isLogin: false,
+      challenges: [
+        {
+          id: 1,
+          active: true,
+          goalType: 'healthy',
+          title: 'Minum air putih doang',
+          desc: 'Challenge hanya minum air putih tanpa gula',
+          startDate: new Date('08-17-2021'),
+          endDate: new Date('08-24-2021'),
+          failed: 0
+        },
+        {
+          id: 2,
+          active: true,
+          goalType: 'productive',
+          title: 'Reduce screen time',
+          desc: 'Hanya 30 menit per hari buat liat hape',
+          startDate: new Date('08-17-2021'),
+          endDate: new Date('08-24-2021'),
+          failed: 0
+        }
+      ]
     }
   },
   mutations: {

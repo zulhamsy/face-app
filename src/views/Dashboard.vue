@@ -19,11 +19,18 @@
     </form>
     <!-- Card -->
     <div class="space-y-3 pb-16">
-      <card-goal goal-type="religious" />
-      <card-goal goal-type="religious" />
-      <card-goal goal-type="religious" />
-      <card-goal goal-type="religious" />
-      <card-goal goal-type="religious" />
+      <card-goal
+        v-for="challenge in challenges"
+        :key="challenge.id"
+        :goal-type="challenge.goalType"
+      >
+        <template #title>
+          {{ challenge.title }}
+        </template>
+        <template #day>
+          {{ challenge.endDate.getDate() - new Date().getDate() }} days remaining
+        </template>
+      </card-goal>
     </div>
     <!-- Create Button -->
     <base-button
@@ -36,11 +43,15 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 import CardGoal from '../components/CardGoal.vue'
 export default {
   name: 'Dashboard',
   components: {
     CardGoal
+  },
+  computed: {
+    ...mapState(['challenges'])
   }
 }
 </script>
