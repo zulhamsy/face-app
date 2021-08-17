@@ -119,6 +119,6 @@ h1 > span {
 
 .error {
   @apply inline-block px-2 py-1 rounded mt-2;
-  @apply text-red-500 bg-red-100 text-sm;
+  @apply text-red-500 bg-red-50 text-sm;
 }
 </style>
