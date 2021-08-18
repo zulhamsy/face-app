@@ -10,7 +10,7 @@
     <ValidForm
       class="space-y-8 pb-5"
       :validation-schema="schema"
-      @submit="createChallenge"
+      @submit="addChallenge"
     >
       <!-- Desc Section -->
       <div>
@@ -142,6 +142,7 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex'
 import CustomRadio from '../components/CustomRadio.vue'
 export default {
   name: 'CreateChallange',
@@ -161,9 +162,7 @@ export default {
     }
   },
   methods: {
-    createChallenge(data) {
-      console.log(data)
-    }
+    ...mapActions(['addChallenge'])
   }
 }
 </script>

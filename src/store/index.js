@@ -1,5 +1,5 @@
 import { createStore } from 'vuex'
-import { auth } from '../firebase'
+import { auth, challengesDB } from '../firebase'
 
 const store = {
   state() {
@@ -40,13 +40,27 @@ const store = {
   },
   actions: {
     async login({ commit }, { email, password }) {
-      const cred = await auth.signInWithEmailAndPassword(email, password)
+      await auth.signInWithEmailAndPassword(email, password)
       commit('toggleLogin')
-      return cred
     },
     logout({ commit }) {
       auth.signOut()
       commit('toggleLogout')
+    },
+    // eslint-disable-next-line no-unused-vars
+    async addChallenge({ commit }, { shortdesc, description, days, goals }) {
+      const today = new Date()
+      const day = 1000 * 3600 * 24 * days
+      const end = new Date(today.getTime() + day)
+      await challengesDB.add({
+        active: true,
+        goalType: goals,
+        title: shortdesc,
+        desc: description,
+        startDate: today,
+        endDate: end,
+        failed: null
+      })
     }
   }
 }
