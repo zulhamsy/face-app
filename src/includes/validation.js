@@ -1,5 +1,5 @@
 import { Field, Form, ErrorMessage, defineRule, configure } from 'vee-validate'
-import { required, email } from '@vee-validate/rules'
+import { required, email, max } from '@vee-validate/rules'
 
 export default {
   install(app) {
@@ -10,13 +10,15 @@ export default {
     // Define Ruleset
     defineRule('required', required)
     defineRule('email', email)
+    defineRule('shortdesc', max)
 
     // Configure Error Message
     configure({
       generateMessage: (context) => {
         const message = {
           required: `${context.field} is required`,
-          email: 'Please input valid email'
+          email: 'Please input valid email',
+          shortdesc: `Maximum character only ${context.rule.params} characters`
         }
 
         if (!message[context.rule.name]) {

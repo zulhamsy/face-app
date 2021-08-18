@@ -7,18 +7,38 @@
       Create New Challenge
     </h1>
     <!-- Form -->
-    <form class="space-y-8 pb-5">
+    <ValidForm
+      class="space-y-8 pb-5"
+      :validation-schema="schema"
+    >
       <!-- Desc Section -->
       <div>
         <base-input-label for="shortdesc">
           <p class="shortdesc">
             <span>Short Description</span>
-            <span class="counter">0 / 20</span>
+            <span
+              class="text-xs text-gray-300"
+              :class="{'text-red-300': shortdesc.length > 20}"
+            >{{ shortdesc.length }} / 20</span>
           </p>
         </base-input-label>
-        <base-input
-          id="shortdesc"
-          class="w-full"
+        <Field
+          v-slot="{ field }"
+          v-model="shortdesc"
+          name="shortdesc"
+          label="Short Description"
+          :validate-on-model-update="false"
+        >
+          <base-input
+            id="shortdesc"
+            v-bind="field"
+            class="w-full"
+            autocomplete="off"
+          />
+        </Field>
+        <ErrorMessage
+          name="shortdesc"
+          class="error"
         />
       </div>
       <div>
@@ -77,7 +97,7 @@
       >
         Create Challange
       </base-button>
-    </form>
+    </ValidForm>
   </div>
 </template>
 
@@ -90,8 +110,12 @@ export default {
   },
   data() {
     return {
+      schema: {
+        shortdesc: 'required|shortdesc:20'
+      },
       duration: [3, 7, 14, 21, 30, 60],
-      goals: ['healthy', 'religious', 'productive']
+      goals: ['healthy', 'religious', 'productive'],
+      shortdesc: ''
     }
   }
 }
@@ -110,13 +134,8 @@ h1 {
   @apply flex justify-between items-center;
 }
 
-.shortdesc .counter,
 .optional {
-  @apply text-xs text-gray-300;
-}
-
-.optional {
-  @apply italic;
+  @apply italic text-xs text-gray-300;
 }
 
 .radio-wrapper {
@@ -137,5 +156,10 @@ h1 {
   @apply flex justify-center items-center;
   @apply text-3xl text-gray-200;
   @apply border-2 border-dashed border-gray-200;
+}
+
+.error {
+  @apply inline-block px-2 py-1 rounded mt-2;
+  @apply text-red-500 bg-red-50 text-sm;
 }
 </style>
