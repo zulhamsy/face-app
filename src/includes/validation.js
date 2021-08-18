@@ -11,6 +11,7 @@ export default {
     defineRule('required', required)
     defineRule('email', email)
     defineRule('shortdesc', max)
+    defineRule('level', required)
 
     // Configure Error Message
     configure({
@@ -18,7 +19,8 @@ export default {
         const message = {
           required: `${context.field} is required`,
           email: 'Please input valid email',
-          shortdesc: `Maximum character only ${context.rule.params} characters`
+          shortdesc: `Maximum character only ${context.rule.params} characters`,
+          level: 'Are you afraid to lose? Pick a level!'
         }
 
         if (!message[context.rule.name]) {

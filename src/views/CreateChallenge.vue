@@ -10,6 +10,7 @@
     <ValidForm
       class="space-y-8 pb-5"
       :validation-schema="schema"
+      @submit="createChallenge"
     >
       <!-- Desc Section -->
       <div>
@@ -46,29 +47,52 @@
           <span>Description</span>
           <span class="optional"> (optional)</span>
         </base-input-label>
-        <base-input
-          id="longdesc"
-          class="w-full"
-          mode="textarea"
-        />
+        <Field
+          v-slot="{ field }"
+          name="description"
+        >
+          <base-input
+            id="longdesc"
+            v-bind="field"
+            class="w-full"
+            mode="textarea"
+          />
+        </Field>
       </div>
       <!-- Duration Section -->
       <div>
         <base-input-label>Duration Level</base-input-label>
+
         <div class="radio-wrapper duration">
-          <custom-radio
+          <div
             v-for="day in duration"
-            :id="day + 'd'"
             :key="day"
-            name="days"
-            class="flex flex-col items-center justify-center"
           >
-            <template #label>
-              <span class="font-semibold text-lg">{{ day }}</span>
-              <span class="opacity-80">Days</span>
-            </template>
-          </custom-radio>
+            <Field
+              v-slot="{ field }"
+              type="radio"
+              name="days"
+              :value="day"
+            >
+              <custom-radio
+                :id="day + 'd'"
+                v-bind="field"
+                name="days"
+                :value="day"
+                class="flex flex-col items-center justify-center h-full"
+              >
+                <template #label>
+                  <span class="font-semibold text-lg">{{ day }}</span>
+                  <span class="opacity-80">Days</span>
+                </template>
+              </custom-radio>
+            </Field>
+          </div>
         </div>
+        <ErrorMessage
+          name="days"
+          class="error"
+        />
       </div>
       <!-- Goal Section -->
       <div>
@@ -111,11 +135,17 @@ export default {
   data() {
     return {
       schema: {
-        shortdesc: 'required|shortdesc:20'
+        shortdesc: 'required|shortdesc:20',
+        days: 'level'
       },
       duration: [3, 7, 14, 21, 30, 60],
       goals: ['healthy', 'religious', 'productive'],
       shortdesc: ''
+    }
+  },
+  methods: {
+    createChallenge(data) {
+      console.log(data)
     }
   }
 }
