@@ -62,7 +62,6 @@
       <!-- Duration Section -->
       <div>
         <base-input-label>Duration Level</base-input-label>
-
         <div class="radio-wrapper duration">
           <div
             v-for="day in duration"
@@ -98,22 +97,39 @@
       <div>
         <base-input-label>Goal Category</base-input-label>
         <div class="radio-wrapper goals">
-          <custom-radio
+          <div
             v-for="goal in goals"
-            :id="goal"
             :key="goal"
-            name="goals"
-            :color="goal"
           >
-            <template #label>
-              <span class="h-full flex items-center justify-center capitalize font-medium text-md">{{ goal }}</span>
-            </template>
-          </custom-radio>
+            <Field
+              v-slot="{ field }"
+              type="radio"
+              name="goals"
+              :value="goal"
+            >
+              <custom-radio
+                :id="goal"
+                v-bind="field"
+                name="goals"
+                :color="goal"
+                :value="goal"
+                class="h-full w-full flex items-center justify-center capitalize font-medium text-md"
+              >
+                <template #label>
+                  <span>{{ goal }}</span>
+                </template>
+              </custom-radio>
+            </Field>
+          </div>
           <!-- Coming Feature / Add New Category -->
           <div class="add-goal">
             +
           </div>
         </div>
+        <ErrorMessage
+          name="goals"
+          class="error"
+        />
       </div>
       <!-- Submit Button -->
       <base-button
@@ -136,7 +152,8 @@ export default {
     return {
       schema: {
         shortdesc: 'required|shortdesc:20',
-        days: 'level'
+        days: 'level',
+        goals: 'goal'
       },
       duration: [3, 7, 14, 21, 30, 60],
       goals: ['healthy', 'religious', 'productive'],

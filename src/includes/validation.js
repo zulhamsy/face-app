@@ -12,6 +12,7 @@ export default {
     defineRule('email', email)
     defineRule('shortdesc', max)
     defineRule('level', required)
+    defineRule('goal', required)
 
     // Configure Error Message
     configure({
@@ -20,7 +21,8 @@ export default {
           required: `${context.field} is required`,
           email: 'Please input valid email',
           shortdesc: `Maximum character only ${context.rule.params} characters`,
-          level: 'Are you afraid to lose? Pick a level!'
+          level: 'Are you afraid to lose? Pick a level!',
+          goal: 'Please you just have to pick one'
         }
 
         if (!message[context.rule.name]) {
