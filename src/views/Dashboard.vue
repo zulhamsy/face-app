@@ -21,7 +21,10 @@
       </base-button> -->
     </div>
     <!-- Card -->
-    <div class="space-y-3 pb-16">
+    <div
+      v-if="filteredChallenges.length"
+      class="space-y-3 pb-16"
+    >
       <card-goal
         v-for="challenge in filteredChallenges"
         :key="challenge.id"
@@ -31,9 +34,20 @@
           {{ challenge.title }}
         </template>
         <template #day>
-          {{ challenge.endDate.getDate() - new Date().getDate() }} days remaining
+          {{ Math.floor((challenge.endDate - today) / (1000 * 3600 * 24)) }} days remaining
         </template>
       </card-goal>
+    </div>
+    <div
+      v-else
+      class="flex flex-col items-center space-y-2"
+    >
+      <p class="text-lg font-semibold">
+        Oops!
+      </p>
+      <p class="opacity-80">
+        Found no challenge? Try create one!
+      </p>
     </div>
     <!-- Create Button -->
     <base-button
@@ -55,18 +69,19 @@ export default {
   },
   data() {
     return {
-      keyword: ''
+      keyword: '',
+      today: new Date()
     }
   },
   computed: {
     ...mapState(['challenges']),
     filteredChallenges() {
-      const regex = new RegExp(this.keyword)
+      // const regex = new RegExp(this.keyword)
       if (!this.keyword) {
         return this.challenges
       } else {
         return this.challenges.filter((challenge) =>
-          regex.test(challenge.title.toLowerCase())
+          challenge.title.toLowerCase().includes(this.keyword)
         )
       }
     }
