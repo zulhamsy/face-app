@@ -25,6 +25,7 @@
         <Field
           v-slot="{ field }"
           name="email"
+          :validate-on-model-update="false"
         >
           <base-input
             id="email"
