@@ -4,6 +4,7 @@ import store from '../store'
 import Login from '../views/Login.vue'
 
 const Dashboard = () => import('../views/Dashboard.vue')
+const CreateChallenge = () => import('../views/CreateChallenge.vue')
 
 const routes = [
   {
@@ -22,6 +23,14 @@ const routes = [
       if (store.state.isLogin) {
         return { name: 'dashboard' }
       }
+    }
+  },
+  {
+    path: '/create',
+    name: 'create',
+    component: CreateChallenge,
+    meta: {
+      requiresAuth: true
     }
   }
 ]
