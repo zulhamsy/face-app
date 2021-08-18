@@ -53,6 +53,7 @@
     <base-button
       color="gray"
       class="fixed bottom-0 left-0 w-full"
+      @click="$router.push({name: 'create'})"
     >
       Create Challenge
     </base-button>
