@@ -86,8 +86,14 @@ export default {
       }
     }
   },
-  created() {
-    this.fetchChallenge()
+  async created() {
+    if (!this.challenges.length) {
+      try {
+        await this.fetchChallenge()
+      } catch (error) {
+        console.log(error)
+      }
+    }
   },
   methods: { ...mapActions(['fetchChallenge']) }
 }

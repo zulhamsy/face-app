@@ -5,28 +5,7 @@ const store = {
   state() {
     return {
       isLogin: false,
-      challenges: [
-        {
-          id: 1,
-          active: true,
-          goalType: 'healthy',
-          title: 'Minum air putih doang',
-          desc: 'Challenge hanya minum air putih tanpa gula',
-          startDate: new Date('08-17-2021'),
-          endDate: new Date('08-24-2021'),
-          failed: 0
-        },
-        {
-          id: 2,
-          active: true,
-          goalType: 'productive',
-          title: 'Reduce screen time',
-          desc: 'Hanya 30 menit per hari buat liat hape',
-          startDate: new Date('08-17-2021'),
-          endDate: new Date('08-24-2021'),
-          failed: 0
-        }
-      ]
+      challenges: []
     }
   },
   mutations: {
@@ -71,18 +50,20 @@ const store = {
     },
     async fetchChallenge({ commit }) {
       const snapshot = await challengesDB.where('active', '==', true).get()
-      snapshot.forEach((doc) => {
-        commit('add', {
-          id: doc.id,
-          active: doc.data().active,
-          goalType: doc.data().goalType,
-          title: doc.data().title,
-          desc: doc.data().desc,
-          startDate: doc.data().startDate.toDate(),
-          endDate: doc.data().endDate.toDate(),
-          failed: doc.data().failed
+      if (!snapshot.empty) {
+        snapshot.forEach((doc) => {
+          commit('add', {
+            id: doc.id,
+            active: doc.data().active,
+            goalType: doc.data().goalType,
+            title: doc.data().title,
+            desc: doc.data().desc,
+            startDate: doc.data().startDate.toDate(),
+            endDate: doc.data().endDate.toDate(),
+            failed: doc.data().failed
+          })
         })
-      })
+      }
     }
   }
 }
