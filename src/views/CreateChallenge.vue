@@ -10,7 +10,7 @@
     <ValidForm
       class="space-y-8 pb-5"
       :validation-schema="schema"
-      @submit="addChallenge"
+      @submit="createChallenge"
     >
       <!-- Desc Section -->
       <div>
@@ -50,6 +50,7 @@
         <Field
           v-slot="{ field }"
           name="description"
+          :validate-on-model-update="false"
         >
           <base-input
             id="longdesc"
@@ -72,6 +73,7 @@
               type="radio"
               name="days"
               :value="day"
+              :validate-on-model-update="false"
             >
               <custom-radio
                 :id="day + 'd'"
@@ -106,6 +108,7 @@
               type="radio"
               name="goals"
               :value="goal"
+              :validate-on-model-update="false"
             >
               <custom-radio
                 :id="goal"
@@ -162,7 +165,15 @@ export default {
     }
   },
   methods: {
-    ...mapActions(['addChallenge'])
+    ...mapActions(['addChallenge']),
+    async createChallenge(payload) {
+      try {
+        await this.addChallenge(payload)
+        this.$router.push({ name: 'dashboard' })
+      } catch (error) {
+        console.log(error)
+      }
+    }
   }
 }
 </script>

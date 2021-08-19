@@ -34,7 +34,7 @@
           {{ challenge.title }}
         </template>
         <template #day>
-          {{ Math.floor((challenge.endDate - today) / (1000 * 3600 * 24)) }} days remaining
+          {{ Math.round((challenge.endDate - new Date()) / (1000 * 3600 * 24)) + 1 }} days remaining
         </template>
       </card-goal>
     </div>
@@ -70,8 +70,7 @@ export default {
   },
   data() {
     return {
-      keyword: '',
-      today: new Date()
+      keyword: ''
     }
   },
   computed: {

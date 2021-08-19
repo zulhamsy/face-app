@@ -36,6 +36,9 @@ const store = {
 
     toggleLogout(state) {
       state.isLogin = false
+    },
+    add(state, payload) {
+      state.challenges.push(payload)
     }
   },
   actions: {
@@ -50,9 +53,9 @@ const store = {
     // eslint-disable-next-line no-unused-vars
     async addChallenge({ commit }, { shortdesc, description, days, goals }) {
       const today = new Date()
-      const day = 1000 * 3600 * 24 * days
+      const day = 1000 * 3600 * 24 * (days - 1)
       const end = new Date(today.getTime() + day)
-      await challengesDB.add({
+      const payload = {
         active: true,
         goalType: goals,
         title: shortdesc,
@@ -60,6 +63,11 @@ const store = {
         startDate: today,
         endDate: end,
         failed: null
+      }
+      const docRef = await challengesDB.add(payload)
+      commit('add', {
+        id: docRef.id,
+        ...payload
       })
     }
   }
