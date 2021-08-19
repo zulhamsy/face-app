@@ -17,7 +17,7 @@ const store = {
       state.isLogin = false
     },
     add(state, payload) {
-      state.challenges.push(payload)
+      state.challenges.unshift(payload)
     }
   },
   actions: {

@@ -62,6 +62,7 @@
 
 <script>
 import { mapActions, mapState } from 'vuex'
+import { challengesDB } from '../firebase'
 import CardGoal from '../components/CardGoal.vue'
 export default {
   name: 'Dashboard',
@@ -87,7 +88,7 @@ export default {
     }
   },
   async created() {
-    if (!this.challenges.length) {
+    if (this.challenges.length != (await challengesDB.get()).size) {
       try {
         await this.fetchChallenge()
       } catch (error) {
