@@ -50,7 +50,6 @@ const store = {
       auth.signOut()
       commit('toggleLogout')
     },
-    // eslint-disable-next-line no-unused-vars
     async addChallenge({ commit }, { shortdesc, description, days, goals }) {
       const today = new Date()
       const day = 1000 * 3600 * 24 * (days - 1)
@@ -68,6 +67,21 @@ const store = {
       commit('add', {
         id: docRef.id,
         ...payload
+      })
+    },
+    async fetchChallenge({ commit }) {
+      const snapshot = await challengesDB.where('active', '==', true).get()
+      snapshot.forEach((doc) => {
+        commit('add', {
+          id: doc.id,
+          active: doc.data().active,
+          goalType: doc.data().goalType,
+          title: doc.data().title,
+          desc: doc.data().desc,
+          startDate: doc.data().startDate.toDate(),
+          endDate: doc.data().endDate.toDate(),
+          failed: doc.data().failed
+        })
       })
     }
   }

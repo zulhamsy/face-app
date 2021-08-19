@@ -61,7 +61,7 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapActions, mapState } from 'vuex'
 import CardGoal from '../components/CardGoal.vue'
 export default {
   name: 'Dashboard',
@@ -85,7 +85,11 @@ export default {
         )
       }
     }
-  }
+  },
+  created() {
+    this.fetchChallenge()
+  },
+  methods: { ...mapActions(['fetchChallenge']) }
 }
 </script>
 
