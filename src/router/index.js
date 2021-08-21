@@ -1,10 +1,10 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import store from '../store'
+import { auth } from '../firebase'
 
 import Login from '../views/Login.vue'
-
 const Dashboard = () => import('../views/Dashboard.vue')
 const CreateChallenge = () => import('../views/CreateChallenge.vue')
+const ViewChallenge = () => import('../views/ViewChallenge.vue')
 
 const routes = [
   {
@@ -20,7 +20,7 @@ const routes = [
     name: 'login',
     component: Login,
     beforeEnter() {
-      if (store.state.isLogin) {
+      if (auth.currentUser != null) {
         return { name: 'dashboard' }
       }
     }
@@ -29,6 +29,14 @@ const routes = [
     path: '/create',
     name: 'create',
     component: CreateChallenge,
+    meta: {
+      requiresAuth: true
+    }
+  },
+  {
+    path: '/view-challenge/:id',
+    name: 'view',
+    component: ViewChallenge,
     meta: {
       requiresAuth: true
     }
@@ -42,9 +50,9 @@ const router = createRouter({
 })
 
 router.beforeEach((to, from, next) => {
-  if (to.meta.requiresAuth && !store.state.isLogin) {
+  if (to.meta.requiresAuth && !auth.currentUser) {
     next({ name: 'login' })
-  } else if (to.meta.requiresAuth && store.state.isLogin) {
+  } else if (to.meta.requiresAuth && auth.currentUser) {
     next()
   } else {
     next()

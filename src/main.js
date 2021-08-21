@@ -11,7 +11,7 @@ import BaseInput from './components/BaseInput.vue'
 import BaseInputLabel from './components/BaseInputLabel.vue'
 import TheNavbar from './components/TheNavbar.vue'
 
-let app = null
+let app
 auth.onAuthStateChanged(() => {
   if (!app) {
     app = createApp(App)

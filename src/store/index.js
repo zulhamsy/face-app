@@ -1,21 +1,14 @@
+/* eslint-disable no-unused-vars */
 import { createStore } from 'vuex'
 import { auth, challengesDB } from '../firebase'
 
 const store = {
   state() {
     return {
-      isLogin: false,
       challenges: []
     }
   },
   mutations: {
-    toggleLogin(state) {
-      state.isLogin = true
-    },
-
-    toggleLogout(state) {
-      state.isLogin = false
-    },
     add(state, payload) {
       state.challenges.unshift(payload)
     }
@@ -23,11 +16,9 @@ const store = {
   actions: {
     async login({ commit }, { email, password }) {
       await auth.signInWithEmailAndPassword(email, password)
-      commit('toggleLogin')
     },
     logout({ commit }) {
       auth.signOut()
-      commit('toggleLogout')
     },
     async addChallenge({ commit }, { shortdesc, description, days, goals }) {
       const today = new Date()
