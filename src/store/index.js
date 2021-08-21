@@ -11,6 +11,9 @@ const store = {
   mutations: {
     add(state, payload) {
       state.challenges.unshift(payload)
+    },
+    removeAll(state) {
+      state.challenges = []
     }
   },
   actions: {
@@ -40,6 +43,7 @@ const store = {
       })
     },
     async fetchChallenge({ commit }) {
+      commit('removeAll')
       const snapshot = await challengesDB.where('active', '==', true).get()
       if (!snapshot.empty) {
         snapshot.forEach((doc) => {
