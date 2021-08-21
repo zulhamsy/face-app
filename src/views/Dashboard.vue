@@ -29,6 +29,8 @@
         v-for="challenge in filteredChallenges"
         :key="challenge.id"
         :goal-type="challenge.goalType"
+        class="cursor-pointer"
+        @click="$router.push({name: 'view', params: {id: challenge.id}})"
       >
         <template #title>
           {{ challenge.title }}
