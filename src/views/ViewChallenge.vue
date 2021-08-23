@@ -3,7 +3,10 @@
   <the-navbar />
   <!-- Content -->
   <div class="container mx-auto px-4 pt-16">
-    <main class="space-y-8">
+    <main
+      v-if="selectedChallenge"
+      class="space-y-8"
+    >
       <!-- Short Desc -->
       <div>
         <base-input-label>Short Description</base-input-label>
@@ -49,15 +52,24 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapState, mapActions } from 'vuex'
 export default {
   name: 'ViewChallenge',
   computed: {
     ...mapState(['challenges']),
     selectedChallenge() {
-      return this.challenges.filter(
-        (challenge) => challenge.id == this.$route.params.id
-      )[0]
+      if (this.challenges.length) {
+        return this.challenges.filter(
+          (challenge) => challenge.id == this.$route.params.id
+        )[0]
+      } else {
+        return false
+      }
+    }
+  },
+  created() {
+    if (this.challenges.length == 0) {
+      this.fetchChallenge()
     }
   },
   methods: {
@@ -88,7 +100,8 @@ export default {
       return `${day[date.getDay()]}, ${date.getDate()} ${
         month[date.getMonth()]
       } ${date.getFullYear()}`
-    }
+    },
+    ...mapActions(['fetchChallenge'])
   }
 }
 </script>

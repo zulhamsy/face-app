@@ -58,7 +58,14 @@ const store = {
             failed: doc.data().failed
           })
         })
-      }
+      } // else ketika datanya kosong jadi return message buat dashboard
+    },
+    async fetchSingleChallenge({ commit }, id) {
+      const snapshot = await challengesDB.doc(id).get()
+      if (snapshot.exists) {
+        console.log(snapshot.data())
+        commit('add', snapshot.data())
+      } // else ketika datanya kosong, jadi tampilkan 404
     }
   }
 }
