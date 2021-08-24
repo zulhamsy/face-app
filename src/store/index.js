@@ -5,7 +5,8 @@ import { auth, challengesDB } from '../firebase'
 const store = {
   state() {
     return {
-      challenges: []
+      challenges: [],
+      challenge: {}
     }
   },
   mutations: {
@@ -14,6 +15,20 @@ const store = {
     },
     removeAll(state) {
       state.challenges = []
+    },
+    updateFailed(state, { id, payload }) {
+      const index = state.challenges.findIndex(
+        (challenge) => challenge.id == id
+      )
+      state.challenges[index].failed = [payload]
+    },
+    updateSingle(state, payload) {
+      state.challenge = payload
+    }
+  },
+  getters: {
+    challengeIndex: (state) => (id) => {
+      return state.challenges.findIndex((challenge) => challenge.id == id)
     }
   },
   actions: {
@@ -34,7 +49,7 @@ const store = {
         desc: description,
         startDate: today,
         endDate: end,
-        failed: null
+        failed: []
       }
       const docRef = await challengesDB.add(payload)
       commit('add', {
@@ -60,12 +75,41 @@ const store = {
         })
       } // else ketika datanya kosong jadi return message buat dashboard
     },
-    async fetchSingleChallenge({ commit }, id) {
-      const snapshot = await challengesDB.doc(id).get()
-      if (snapshot.exists) {
-        console.log(snapshot.data())
-        commit('add', snapshot.data())
-      } // else ketika datanya kosong, jadi tampilkan 404
+    async fetchHistory({ commit }, id) {
+      const query = challengesDB
+        .doc(id)
+        .collection('history')
+        .where('type', '==', 'failed')
+      const snapshot = await query.get()
+      if (!snapshot.empty) {
+        snapshot.forEach((doc) => {
+          commit('updateFailed', { id, doc })
+        })
+      }
+    },
+    async fetchSingleChallenge({ commit, state, getters }, id) {
+      // cek apakah id di state.challenge == id | kalo ada return true
+      if (state.challenge && state.challenge.id == id) {
+        return true
+        // else if, cek apakah di state.challenges ada object.id == id | kalo ada set challenge
+      } else if (getters.challengeIndex(id) != -1) {
+        state.challenge = state.challenges[getters.challengeIndex(id)]
+      } else {
+        // else, fetch single data dan store di state.challenge
+        const doc = await challengesDB.doc(id).get()
+        if (doc.exists) {
+          commit('updateSingle', {
+            id: doc.id,
+            active: doc.data().active,
+            goalType: doc.data().goalType,
+            title: doc.data().title,
+            desc: doc.data().desc,
+            startDate: doc.data().startDate.toDate(),
+            endDate: doc.data().endDate.toDate(),
+            failed: doc.data().failed
+          })
+        }
+      }
     }
   }
 }
