@@ -34,7 +34,7 @@
           {{ challenge.title }}
         </template>
         <template #day>
-          {{ Math.round((challenge.endDate - new Date()) / (1000 * 3600 * 24)) + 1 }} days remaining
+          <day-remain :end-date="challenge.endDate" />
         </template>
       </card-goal>
     </div>
@@ -64,10 +64,12 @@
 import { mapActions, mapState } from 'vuex'
 import { challengesDB } from '../firebase'
 import CardGoal from '../components/CardGoal.vue'
+import DayRemain from '../components/DashboardDayRemain.vue'
 export default {
   name: 'Dashboard',
   components: {
-    CardGoal
+    CardGoal,
+    DayRemain
   },
   data() {
     return {
